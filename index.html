@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Puzzle Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Geometric Background Pattern -->
+    <div class="bg-pattern"></div>
+    
+    <div class="game-container">
+        <div class="card">
+            <!-- Confetti Container -->
+            <div class="confetti-container" id="confetti-container"></div>
+            
+            <!-- Home Screen -->
+            <div id="home-screen">
+                <h1>Mini Puzzle Portal</h1>
+                <p class="subtitle">Challenge your mind with fun puzzles!</p>
+                <button class="btn" onclick="showModeSelection()">Start Game</button>
+            </div>
+
+            <!-- Mode Selection -->
+            <div id="mode-selection" style="display: none;">
+                <h2 style="font-family: 'Fredoka One', cursive; margin-bottom: 20px;">Choose Your Challenge</h2>
+                <div class="mode-selection">
+                    <div class="mode-card wildcard" onclick="selectMode('wildcard')">
+                        <div class="mode-title">Wildcard Mode</div>
+                        <div class="mode-desc">Surprise challenges that test everything!</div>
+                    </div>
+                    <div class="mode-card memory" onclick="selectMode('memory')">
+                        <div class="mode-title">Memory Master</div>
+                        <div class="mode-desc">Test your memory with color sequences</div>
+                    </div>
+                    <div class="mode-card logic" onclick="selectMode('logic')">
+                        <div class="mode-title">Logic Puzzles</div>
+                        <div class="mode-desc">Crack codes and solve patterns</div>
+                    </div>
+                    <div class="mode-card shapes" onclick="selectMode('shapes')">
+                        <div class="mode-title">Shape Matcher</div>
+                        <div class="mode-desc">Drag and drop shapes to win</div>
+                    </div>
+                </div>
+                <button class="btn danger" onclick="showHome()">Back</button>
+            </div>
+
+            <!-- Level Selection -->
+            <div id="level-selection" class="level-selection">
+                <h2 id="mode-title" style="font-family: 'Fredoka One', cursive; margin-bottom: 20px;"></h2>
+                <div class="level-grid" id="level-grid"></div>
+                <button class="btn danger" onclick="showModeSelection()">Back</button>
+            </div>
+
+            <!-- Game Area -->
+            <div id="game-area" class="game-area">
+                <button class="back-btn" onclick="showLevelSelection()">←</button>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <h3 id="game-title" style="font-family: 'Fredoka One', cursive; margin-bottom: 20px;"></h3>
+                <div id="game-content"></div>
+            </div>
+
+            <!-- Success Screen -->
+            <div id="success-screen" class="success-screen">
+                <h2 style="font-family: 'Fredoka One', cursive; color: #00b894; font-size: 2.5rem;">🎉 Congratulations! 🎉</h2>
+                <p style="font-size: 1.2rem; margin: 20px 0;">You've completed all puzzles like a true champion!</p>
+                <button class="btn success" onclick="showHome()">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
